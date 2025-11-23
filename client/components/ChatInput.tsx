@@ -194,7 +194,11 @@ export default function ChatInput({ conversationId }: { conversationId: string }
     
     if (!messageText) return;
 
-    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const timestamp = new Date().toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
 
     // Send message via backend with new format
     await sendMessage({
