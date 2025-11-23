@@ -186,7 +186,11 @@ function formatMessage(msg: any): FormattedMessage {
     content: msg.content || msg.text || '',
     segments: msg.segments || [],
     currentText: msg.currentText || '',
-    timestamp: msg.timestamp || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    timestamp: msg.timestamp || new Date().toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    }),
   };
 }
 
@@ -245,7 +249,11 @@ async function createUserMessage(
 }
 
 async function createBotMessage(conversationId: string, replyText: string): Promise<any> {
-  const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const timestamp = new Date().toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
   const botMessage = new Message({
     conversationId,
     type: 'bot',
