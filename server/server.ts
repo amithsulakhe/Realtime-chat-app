@@ -9,9 +9,11 @@ import { connectDB } from './config/database';
 import Conversation from './models/Conversation';
 import Message from './models/Message';
 import Hashtag from './models/Hashtag';
+import job from './job';
 
 dotenv.config();
 connectDB();
+job.start();
 
 // Set OpenAI API key
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
