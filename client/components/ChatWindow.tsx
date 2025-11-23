@@ -151,7 +151,7 @@ export default function ChatWindow({
             </div>
           ) : (
             <div className="py-4">
-              {messages.map((message) => (
+              {messages.map((message: any) => (
                 <ChatMessage key={message.id} message={message} />
               ))}
               {isBotTyping && <TypingIndicator />}
